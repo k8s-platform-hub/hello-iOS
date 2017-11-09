@@ -4,11 +4,10 @@ var config = require('./config');
 var request = require('request');
 
 router.route("/").get(function (req, res) {
-  res.send("Hello world from nodejs-express")
+  res.send("Hello world from iOS")
 })
 
 router.route("/get_articles").get(function (req, res) {
-  console.log("Get articles");
   //Fetch all rows from table - articles
   var selectOptions = {
     url: config.projectConfig.url.data,
