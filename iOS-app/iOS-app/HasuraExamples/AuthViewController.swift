@@ -15,9 +15,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
         
     override func viewDidLoad() {
-        super.viewDidLoad()        
-        username.text! = "jaison"
-        password.text! = "password"
+        super.viewDidLoad()
     }
     
     @IBAction func onCancelButtonPressed(_ sender: UIBarButtonItem) {

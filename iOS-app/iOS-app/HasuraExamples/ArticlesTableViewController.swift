@@ -16,7 +16,7 @@ class ArticlesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Fetch all articles from table article
+        //Fetch all articles from table article using hasura's data apis
         Alamofire.request(
             Hasura.URL.data.getURL() + "v1/query",
             method: HTTPMethod.post,

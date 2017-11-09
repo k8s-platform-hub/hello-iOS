@@ -17,6 +17,7 @@ class Hasura {
         case data = "data"
         
         func getURL() -> String {
+            //Replace the following your cluster name
             let clusterName = "h34-nylon80-stg"
             return "https://" + self.rawValue + "." + clusterName + ".hasura-app.io/"
         }
