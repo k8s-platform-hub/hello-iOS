@@ -1,4 +1,5 @@
-description: A basic iOS app which uses the various apis provided by hasura. This quickstart also comes with a simple nodejs express app.
+description: A basic iOS app which uses the various apis provided by hasura. This
+  quickstart also comes with a simple nodejs express app.
 keywords: getting-started, iOS, swift, nodejs, node, express, mobile
 name: hello-iOS
 platformVersion: v0.15.8
