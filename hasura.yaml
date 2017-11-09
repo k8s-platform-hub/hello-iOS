@@ -1,4 +1,4 @@
-description: Blank template for a Hasura project
-keywords: base, getting-started
-name: base
-platformVersion: v0.15.3
+description: A basic iOS app which uses the various apis provided by hasura. This quickstart also comes with a simple nodejs express app.
+keywords: getting-started, iOS, swift, nodejs, node, express, mobile
+name: hello-iOS
+platformVersion: v0.15.8
