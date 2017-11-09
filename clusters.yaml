@@ -3,5 +3,5 @@
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: h34-flyby43-stg
-  name: h34-flyby43-stg
+  kubeContext: babysitting89
+  name: babysitting89
