@@ -10,10 +10,8 @@ This quickstart aims at helping you develop an iOS app using Hasura as your back
 * [Auth API](#auth-apis)
 * [Filestore API](#filestore-apis)
 * [Custom service](#custom-service)
-* [Migrate from an existing react app](#migrate-from-an-existing-react-app)
 * [Local development](#local-development)
 * [Project Structure](#project-structure)
-* [FAQ](#faq)
 
 ## Introduction
 
@@ -153,7 +151,7 @@ The react app in this quickstart shows us an example of uploading a file to the 
 
 There might be cases where you might want to perform some custom business logic on your apis. For example, sending an email/sms to a user on sign up or sending a push notification to the mobile device when some event happens. For this, you would want to create your own custom service which does these for you on the endpoints that you define.
 
-This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://app.cluster-name.hasura-app.io` . Currently, it just returns a "Hello-iOS" at that endpoint.
+This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it just returns a "Hello-iOS" at that endpoint.
 
 In case you want to use another language/framework for your custom service. Take a look at our docs to see how you can add a new custom service.
 
@@ -197,6 +195,7 @@ The project (a.k.a. project directory) has a particular directory structure and 
 └── services
     ├── api/
     └── ui/
+
 ```
 
 ### `hasura.yaml`
