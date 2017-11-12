@@ -61,6 +61,8 @@ Cluster State:      Synced
 
 Keep a note of your cluster name. Alternatively, you can also go to your [hasura dashboard](https://dashboard.hasura.io) and see the clusters you have.
 
+Next, open `mobile-app/iOS-app/Hasura.swift` and replace the `clusterName` at line 21 with the name of your cluster.
+
 ### Step 3: Deploying on a hasura cluster
 
 ```sh
@@ -85,6 +87,7 @@ Hasura provides ready to use data apis to make powerful data queries on your tab
 
 As mentioned earlier, this quickstart app comes with two pre-created tables `author` and `article`.
 
+```
 **author**
 
 column | type
@@ -101,6 +104,7 @@ title | text NOT NULL
 content | text NOT NULL
 rating | numeric NOT NULL
 author_id | integer NOT NULL
+```
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
