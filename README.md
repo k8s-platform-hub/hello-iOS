@@ -38,7 +38,7 @@ The above command does the following:
 1. Creates a new folder in the current working directory called `hello-iOS`
 2. Creates a new trial hasura cluster for you and sets that cluster as the default cluster for this project
 3. Initializes `hello-iOS` as a git repository and adds the necessary git remotes.
-4. Has the source code for a simple iOS app inside the hello-iOS directory called `iOS-app`.
+4. Has the source code for a simple iOS app inside the hello-iOS directory called `mobile-app`.
 
 ### Step 2: Getting cluster information
 
@@ -61,8 +61,6 @@ Cluster State:      Synced
 
 Keep a note of your cluster name. Alternatively, you can also go to your [hasura dashboard](https://dashboard.hasura.io) and see the clusters you have.
 
-Next, open `mobile-app/iOS-app/Hasura.swift` and replace the `clusterName` at line 21 with the name of your cluster.
-
 ### Step 3: Deploying on a hasura cluster
 
 ```sh
@@ -71,7 +69,7 @@ $ git commit -m "Initial Commit"
 $ git push hasura master
 ```
 
-After the above command has been executed, open up the iOS app from `hello-iOS/iOS-app` in your xcode and run the app. Continue reading to know how the iOS app leverages the hasura apis.
+After the above command has been executed, open up the iOS app from `hello-iOS/mobile-app` in your xcode and run the app. Continue reading to know how the iOS app leverages the hasura apis.
 
 ### Api console
 
@@ -108,14 +106,15 @@ author_id | integer NOT NULL
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
-![alt text][readme-assets/data-1.png]
-![alt text][readme-assets/data-2.png]
+![Data schema 1](https://raw.githubusercontent.com/hasura/hello-iOS/master/assets/data-1.png "Data schema 1")
+--------------------------------------------------------------------------------------------------------------------------------
+![Data schema 2](https://raw.githubusercontent.com/hasura/hello-iOS/master/assets/data-2.png "Data schema 2")
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
-The iOS app uses these data apis to show the respective data, to see it in action click on `View articles` button in the homepage of the app. The code for the same is at `iOS-app/iOS-app/HasuraExamples/ArticlesTableViewController.swift`. You can also check out all the apis provided by Hasura from the api console by heading over to the `API EXPLORER` tab.
+The iOS app uses these data apis to show the respective data, to see it in action click on `View articles` button in the homepage of the app. The code for the same is at `mobile-app/iOS-app/HasuraExamples/ArticlesTableViewController.swift`. You can also check out all the apis provided by Hasura from the api console by heading over to the `API EXPLORER` tab.
 
-For eg, to fetch a list of all articles from the article table, you have to send the following JSON request to the data api endpoint -> `https://data.cluster-name.hasura-app.io/v1/query` (replace `cluster-name` with your cluster name)
+For eg, to fetch a list of all articles from the article table, you have to send a POST request to the data api endpoint -> `https://data.cluster-name.hasura-app.io/v1/query` (replace `cluster-name` with your cluster name) with the following as the request body.
 
 ```json
 {
@@ -133,31 +132,31 @@ For eg, to fetch a list of all articles from the article table, you have to send
 }
 ```
 
-To learn more about the data apis, head over to our [docs](https://docs.hasura-stg.hasura-app.io/0.15/manual/data/index.html)
+To learn more about the data apis, head over to our [docs](https://docs.hasura.io/0.15/manual/data/index.html)
 
 ## Auth APIs
 
 Every app almost always requires some form of authentication. This is useful to identify a user and provide some sort of personalized experience to the user. Hasura provides various types of authentication methods (username/password, mobile/otp, email/password, Google, Facebook etc).  
 
-You can try out these in the `API EXPLORER` tab of the `api console`. To learn more, check out our [docs](https://docs.hasura-stg.hasura-app.io/0.15/manual/users/index.html)
+You can try out these in the `API EXPLORER` tab of the `api console`. To learn more, check out our [docs](https://docs.hasura.io/0.15/manual/users/index.html)
 
-The iOS app in this quickstart shows us an example of the username/password authentication. To see it in action click on the `Authenticate` button on the landing page of the app and also take a look at the `iOS-app/iOS-app/HasuraExamples/AuthViewController.swift` file to see how this is done in code.
+The iOS app in this quickstart shows us an example of the username/password authentication. To see it in action click on the `Authenticate` button on the landing page of the app and also take a look at the `mobile-app/iOS-app/HasuraExamples/AuthViewController.swift` file to see how this is done in code.
 
 ## Filestore APIs
 
 Sometimes, you would want to upload some files to the cloud. This can range from a profile pic for your user or images for things listed on your app. You can securely add, remove, manage, update files such as pictures, videos, documents using Hasura filestore.
 
-You can try out these in the `API EXPLORER` tab of the `api console`. To learn more, check out our [docs](https://docs.hasura-stg.hasura-app.io/0.15/manual/users/index.html)
+You can try out these in the `API EXPLORER` tab of the `api console`. To learn more, check out our [docs](https://docs.hasura.io/0.15/manual/files/index.html)
 
-The react app in this quickstart shows us an example of uploading a file to the filestore. To see it in action click on the `Filestore` button on the main page and take a look at `iOS-app/iOS-app/HasuraExamples/FilestoreViewController.swift` for the code.
+The iOS app in this quickstart shows us an example of uploading a file to the filestore. To see it in action click on the `Filestore` button on the main page and take a look at `mobile-app/iOS-app/HasuraExamples/FilestoreViewController.swift` for the code.
 
 ## Custom Service
 
 There might be cases where you might want to perform some custom business logic on your apis. For example, sending an email/sms to a user on sign up or sending a push notification to the mobile device when some event happens. For this, you would want to create your own custom service which does these for you on the endpoints that you define.
 
-This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it just returns a "Hello-iOS" at that endpoint.
+This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it returns a "Hello world from iOS" at that endpoint and a list of articles at the "/get_articles" path.
 
-In case you want to use another language/framework for your custom service. Take a look at our docs to see how you can add a new custom service.
+In case you want to use another language/framework for your custom service. Take a look at our [docs](https://docs.hasura.io/0.15/manual/custom-microservices/index.html) to see how you can add a new custom service.
 
 ## Local development
 
