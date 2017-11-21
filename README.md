@@ -31,7 +31,7 @@ Follow this section to get this project working. Before you begin, ensure you ha
 
 ```sh
 $ hasura quickstart hello-iOS
-$ cd hello-react
+$ cd hello-iOS
 ```
 
 The above command does the following:
